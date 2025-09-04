@@ -1,99 +1,186 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+# Coin101 - 加密货币教育网站
+
 <p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
+  <img alt="Coin101" src="https://img.shields.io/badge/Coin101-Cryptocurrency%20Education-blue" />
+  <img alt="Gatsby" src="https://img.shields.io/badge/Built%20with-Gatsby-663399" />
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-green" />
 </p>
-<h1 align="center">
-  Gatsby's hello-world starter
-</h1>
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+一个基于 Gatsby.js 构建的双语（中英文）加密货币教育网站，提供全面的区块链和加密货币相关知识内容。
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+## ✨ 特性
 
-## 🚀 Quick start
+- 🌐 **双语支持**: 完整的中英文内容
+- 📱 **响应式设计**: 适配各种设备
+- ⚡ **高性能**: 基于 Gatsby.js 的静态站点生成
+- 📚 **丰富内容**: 12个主题分类的教育文章
+- 🎨 **现代化UI**: 使用 Styled Components 的美观界面
+- 🔍 **智能筛选**: 支持按主题筛选文章
 
-1.  **Create a Gatsby site.**
+## 🚀 快速开始
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli)) to create a new site, specifying the hello-world starter.
+### 环境要求
 
-    ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
+- Node.js 16.x 或更高版本
+- npm 或 yarn
 
-1.  **Start developing.**
+### 安装依赖
 
-    Navigate into your new site’s directory and start it up.
+```bash
+cd coin101
+npm install
+```
 
-    ```shell
-    cd my-hello-world-starter/
-    gatsby develop
-    ```
+### 启动开发服务器
 
-1.  **Open the source code and start editing!**
+```bash
+npm start
+# 或者
+npm run develop
+```
 
-    Your site is now running at `http://localhost:8000`!
+网站将在 `http://localhost:8000` 启动
 
-    Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
+### 构建生产版本
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+```bash
+npm run build
+```
 
-## 🚀 Quick start (Netlify)
+构建文件将生成在 `public/` 目录中
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+## 📖 内容主题
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
+网站包含以下12个主题分类的教育内容：
 
-## 🧐 What's inside?
+| 主题 | 描述 |
+|------|------|
+| 🏛️ **监管政策** | 全球加密货币法规和政策分析 |
+| 🔧 **应用场景** | 区块链技术的实际应用案例 |
+| 🔍 **实地调研** | 行业深度调研和分析报告 |
+| 👨‍💼 **专家观点** | 行业专家的见解和预测 |
+| 📊 **统计数据** | 市场数据和趋势分析 |
+| 🏢 **相关公司** | 重要企业和项目介绍 |
+| 🛠️ **相关工具** | 实用的加密货币工具推荐 |
+| 📈 **行业报告** | 深度行业研究报告 |
+| 📝 **内容精选** | 高质量内容筛选指南 |
+| 🔥 **热点资讯** | 最新行业动态和新闻 |
+| 📚 **基础概念** | 区块链和加密货币基础知识 |
+| 💰 **投资分析** | 投资策略和风险分析 |
+| 📊 **技术分析** | 技术指标和分析方法 |
 
-A quick look at the top-level files and directories you'll see in a typical Gatsby project.
+## 🏗️ 项目结构
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package.json
-    └── README.md
+```
+coin101/
+├── content/                  # MDX 文章内容
+│   ├── application-scenarios/
+│   ├── basic-concepts/
+│   ├── content-selection/
+│   ├── expert-opinions/
+│   ├── field-research/
+│   ├── hot-news/
+│   ├── industry-reports/
+│   ├── investment-analysis/
+│   ├── regulatory-policy/
+│   ├── related-companies/
+│   ├── related-tools/
+│   ├── statistics/
+│   └── technical-analysis/
+├── src/
+│   ├── components/           # React 组件
+│   ├── images/              # 图片资源
+│   ├── pages/               # 页面组件
+│   │   ├── index.js         # 首页
+│   │   ├── articles.js      # 文章列表页
+│   │   └── 404.js          # 404页面
+│   └── templates/           # 页面模板
+│       └── article.js       # 文章模板
+├── static/                  # 静态资源
+├── gatsby-config.js         # Gatsby 配置
+├── gatsby-node.js          # 构建配置
+└── package.json            # 项目依赖
+```
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+## 🛠️ 技术栈
 
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+- **前端框架**: [Gatsby.js](https://www.gatsbyjs.com/) (React-based)
+- **样式方案**: [Styled Components](https://styled-components.com/)
+- **内容格式**: [MDX](https://mdxjs.com/) (Markdown + JSX)
+- **语言**: JavaScript/JSX
+- **部署**: 静态站点生成
 
-1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+## 📝 内容管理
 
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+### 添加新文章
 
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
+1. 在 `content/` 目录下创建新的主题文件夹
+2. 添加 `index.en.mdx`（英文）和 `index.zh.mdx`（中文）文件
+3. 配置 frontmatter 元数据：
 
-1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+```yaml
+---
+title: "文章标题"
+date: "2024-01-15"
+author: "作者名称"
+category: "主题分类"
+language: "zh" # 或 "en"
+slug: "article-slug"
+description: "文章描述"
+tags: ["标签1", "标签2"]
+---
+```
 
-1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+### 支持的主题分类
 
-1.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+- `regulatory_policy` - 监管政策
+- `application_scenarios` - 应用场景
+- `field_research` - 实地调研
+- `expert_opinions` - 专家观点
+- `statistics` - 统计数据
+- `related_companies` - 相关公司
+- `related_tools` - 相关工具
+- `industry_reports` - 行业报告
+- `content_selection` - 内容精选
+- `hot_news` - 热点资讯
+- `basic_concepts` - 基础概念
+- `investment_analysis` - 投资分析
+- `technical_analysis` - 技术分析
 
-1.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+## 🌐 部署
 
-1.  **`README.md`**: A text file containing useful reference information about your project.
+### Netlify 部署
 
-## 🎓 Learning Gatsby
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/your-username/coin101)
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
+### 手动部署
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/getting-started/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+1. 构建项目：`npm run build`
+2. 将 `public/` 目录部署到任何静态托管服务
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+## 🤝 贡献
 
-## 💫 Deploy
+欢迎贡献内容和代码！请遵循以下步骤：
 
-[Build, Deploy, and Host On Netlify](https://netlify.com)
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
 
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
+## 📄 许可证
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+
+## 📞 联系我们
+
+如有问题或建议，请通过以下方式联系：
+
+- 📧 Email: contact@coin101.com
+- 🐛 Issues: [GitHub Issues](https://github.com/your-username/coin101/issues)
+
+---
+
+<p align="center">
+  Made with ❤️ for the cryptocurrency education community
+</p>

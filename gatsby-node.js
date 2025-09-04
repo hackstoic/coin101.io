@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Query for all MDX files
   const result = await graphql(`
-    query {
+    {
       allMdx {
         nodes {
           id
@@ -30,6 +30,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           frontmatter {
             language
+            slug
           }
           internal {
             contentFilePath
@@ -41,6 +42,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (result.errors) {
     reporter.panicOnBuild('Error loading MDX result', result.errors)
+    return
   }
 
   // Create article pages
@@ -48,26 +50,35 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const articleTemplate = path.resolve('./src/templates/article.js')
 
   articles.forEach((node) => {
-    const { slug } = node.fields
     const { language } = node.frontmatter
+    const baseSlug = node.frontmatter?.slug || node.fields?.slug?.replace('/articles/', '').replace('/', '')
+    const contentFilePath = node.internal.contentFilePath
+
+    if (!baseSlug) {
+      reporter.warn(`No slug found for MDX node ${node.id}`)
+      return
+    }
+
+    // Create language-specific paths based on file path
+    let finalPath
+    if (language === 'zh' || contentFilePath.includes('.zh.mdx')) {
+      finalPath = `/articles/${baseSlug}/`
+    } else if (language === 'en' || contentFilePath.includes('.en.mdx')) {
+      finalPath = `/articles/${baseSlug}/en/`
+    } else {
+      finalPath = `/articles/${baseSlug}/`
+    }
+
+
 
     createPage({
-      path: slug,
-      component: `${articleTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+      path: finalPath,
+      component: `${articleTemplate}?__contentFilePath=${contentFilePath}`,
       context: {
         id: node.id,
+        language: language,
+        contentFilePath: contentFilePath,
       },
     })
-
-    // Also create language-specific paths
-    if (language) {
-      createPage({
-        path: `/${language}${slug}`,
-        component: `${articleTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-        context: {
-          id: node.id,
-        },
-      })
-    }
   })
 }

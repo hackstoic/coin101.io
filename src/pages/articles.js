@@ -216,8 +216,12 @@ const ArticlesPage = ({ data, pageContext, location }) => {
               <ArticleTitle>{article.frontmatter.title}</ArticleTitle>
               <ArticleDescription>{article.frontmatter.description}</ArticleDescription>
               
-              <ReadMoreButton to={`/articles/${article.frontmatter.slug || article.fields.slug}`}>
-                阅读更多 →
+              <ReadMoreButton to={
+                article.frontmatter.language === 'en' 
+                  ? `/articles/${article.frontmatter.slug || article.fields.slug?.replace('/articles/', '').replace('/', '')}/en/`
+                  : `/articles/${article.frontmatter.slug || article.fields.slug?.replace('/articles/', '').replace('/', '')}/`
+              }>
+                {article.frontmatter.language === 'en' ? 'Read More →' : '阅读更多 →'}
               </ReadMoreButton>
             </ArticleCard>
           ))

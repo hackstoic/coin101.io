@@ -11,9 +11,6 @@ const IndexPage = () => {
           Coin101
         </div>
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          <Link to="/articles" style={{ color: '#3182ce', textDecoration: 'none', fontWeight: '500' }}>
-            Articles
-          </Link>
         </div>
       </nav>
       <header style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -26,7 +23,8 @@ const IndexPage = () => {
         <p style={{ color: '#718096', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
           从这里读懂稳定币
         </p>
-        <button 
+        <Link 
+          to="/articles?topic=basic_concepts"
           style={{
             backgroundColor: '#3182ce',
             color: 'white',
@@ -35,11 +33,13 @@ const IndexPage = () => {
             borderRadius: '6px',
             fontSize: '1.1rem',
             marginTop: '2rem',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            textDecoration: 'none',
+            display: 'inline-block'
           }}
         >
           开始学习
-        </button>
+        </Link>
       </header>
 
       <section style={{ marginBottom: '3rem' }}>

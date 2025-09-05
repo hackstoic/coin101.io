@@ -12,7 +12,7 @@ module.exports = {
     title: `Coin101 - Cryptocurrency Education`,
     description: `Learn about cryptocurrency, blockchain technology, and digital assets through comprehensive guides and tutorials.`,
     author: `@coin101`,
-    siteUrl: `https://coin101.com`,
+    siteUrl: `https://coin101.io`,
   },
   plugins: [
     `gatsby-plugin-image`,

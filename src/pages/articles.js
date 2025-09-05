@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { graphql, Link } from "gatsby"
+import React, { useState, useEffect, useMemo } from "react"
+import { graphql, Link, navigate } from "gatsby"
 import styled from "styled-components"
 
 const ArticlesContainer = styled.div`
@@ -127,8 +127,8 @@ const FilterContainer = styled.div`
 const FilterButton = styled.button`
   padding: 0.75rem 1.5rem;
   border: 2px solid #3182ce;
-  background: ${props => props.active ? '#3182ce' : 'transparent'};
-  color: ${props => props.active ? 'white' : '#3182ce'};
+  background: ${props => props.$active ? '#3182ce' : 'transparent'};
+  color: ${props => props.$active ? 'white' : '#3182ce'};
   border-radius: 25px;
   cursor: pointer;
   font-weight: 500;
@@ -145,7 +145,7 @@ const ArticlesPage = ({ data, pageContext, location }) => {
   const [selectedTopic, setSelectedTopic] = useState('all')
   const [filteredArticles, setFilteredArticles] = useState(articles)
 
-  const topics = [
+  const topics = useMemo(() => [
     { key: 'all', name: '全部文章' },
     { key: 'regulatory_policy', name: '监管政策' },
     { key: 'application_scenarios', name: '应用场景' },
@@ -157,8 +157,10 @@ const ArticlesPage = ({ data, pageContext, location }) => {
     { key: 'industry_reports', name: '行业报告' },
     { key: 'content_selection', name: '内容精选' },
     { key: 'hot_news', name: '热点资讯' },
-    { key: 'basic_concepts', name: '基础概念' }
-  ]
+    { key: 'basic_concepts', name: '基础概念' },
+    { key: 'investment_analysis', name: '投资分析' },
+    { key: 'technical_analysis', name: '技术分析' }
+  ], [])
 
   useEffect(() => {
     // 从URL参数获取topic
@@ -194,8 +196,15 @@ const ArticlesPage = ({ data, pageContext, location }) => {
         {topics.map(topic => (
           <FilterButton
             key={topic.key}
-            active={selectedTopic === topic.key}
-            onClick={() => setSelectedTopic(topic.key)}
+            $active={selectedTopic === topic.key}
+            onClick={() => {
+              setSelectedTopic(topic.key)
+              // 更新URL参数
+              const newUrl = topic.key === 'all' 
+                ? '/articles/' 
+                : `/articles/?topic=${topic.key}`
+              navigate(newUrl, { replace: true })
+            }}
           >
             {topic.name}
           </FilterButton>

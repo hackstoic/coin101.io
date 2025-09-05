@@ -157,9 +157,7 @@ const ArticlesPage = ({ data, pageContext, location }) => {
     { key: 'industry_reports', name: '行业报告' },
     { key: 'content_selection', name: '内容精选' },
     { key: 'hot_news', name: '热点资讯' },
-    { key: 'basic_concepts', name: '基础概念' },
-    { key: 'investment_analysis', name: '投资分析' },
-    { key: 'technical_analysis', name: '技术分析' }
+    { key: 'basic_concepts', name: '基础概念' }
   ], [])
 
   useEffect(() => {
